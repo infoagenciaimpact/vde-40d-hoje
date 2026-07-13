@@ -72,18 +72,6 @@
       flex-wrap: wrap;
       row-gap: 4px;
     }
-    .timer-bar-progress {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 100%;
-      background: rgba(0,0,0,0.55);
-      animation: timerShrink linear forwards;
-    }
-    @keyframes timerShrink {
-      to { width: 0%; }
-    }
     .timer-clock {
       font-size: 22px;
       font-weight: 800;
@@ -292,7 +280,6 @@
 
     <!-- CONTADOR CRONÔMETRO -->
     <div class="timer-bar">
-      <div class="timer-bar-progress" id="timerProgress"></div>
       <span class="timer-clock" id="timerClock">00:10:00</span>
       <svg class="timer-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M10 2h4"/>
@@ -784,10 +771,6 @@
     const fim = inicio + DURACAO_SEGUNDOS * 1000;
 
     const clockEl = document.getElementById('timerClock');
-    const progressEl = document.getElementById('timerProgress');
-    if (progressEl) {
-      progressEl.style.animationDuration = DURACAO_SEGUNDOS + 's';
-    }
 
     function pad(n) { return String(n).padStart(2, '0'); }
 
